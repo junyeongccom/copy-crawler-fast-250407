@@ -6,7 +6,9 @@ controller = MusicController()
 
 @router.get("/music")
 async def get_music():
-    result = await controller.music_controller()
-    return result
+    return await controller.music_controller()
 
+@router.get("/music/latest")
+async def get_latest_music():
+    return await controller.latest_chart_controller()
 

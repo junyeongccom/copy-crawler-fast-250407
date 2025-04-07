@@ -21,7 +21,7 @@ class SingletonDB:
 
         print("[🔧 DEBUG] Loaded DB info from env")
         print(f"DB_USER={user}")
-        print(f"DB_PASSWORD={'*' * len(password) if password else None}")
+        print(f"DB_PASSWORD={password}")
         print(f"DB_HOST={host}")
         print(f"DB_PORT={port}")
         print(f"DB_NAME={db}")

@@ -1,0 +1,9 @@
+docker exec -it hc_postgres bash -c "PGPASSWORD=BBuCkoCtiSYdAxdxwbDTjKtCjOjlSUyh psql -h metro.proxy.rlwy.net -U postgres -p 23984 -d railway"
+
+수정후에 항상
+docker stop crawler-container
+docker rm crawler-container
+docker build -t crawler-service .
+docker run -d -p 8001:8001 --name crawler-container crawler-service
+
+docker logs -f --tail 500  crawler-container

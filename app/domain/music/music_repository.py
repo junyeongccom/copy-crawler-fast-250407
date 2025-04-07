@@ -19,13 +19,11 @@ class MusicRepository:
 
     async def get_latest_chart(self, session: AsyncSession) -> list[dict]:
         query = text("""
-            SELECT rank, title, artist, crawled_at
-            FROM melon_chart
-            WHERE crawled_at = (
-                SELECT MAX(crawled_at) FROM melon_chart
-            )
-            ORDER BY rank ASC
-        """)
+    SELECT *
+    FROM melon_chart
+    ORDER BY rank ASC
+""")
+
         result = await session.execute(query)
         rows = result.fetchall()
         return [dict(row._mapping) for row in rows]
