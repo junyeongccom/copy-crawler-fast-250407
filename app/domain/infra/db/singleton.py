@@ -18,7 +18,18 @@ class SingletonDB:
         host = os.getenv("DB_HOST")
         port = os.getenv("DB_PORT")
         db = os.getenv("DB_NAME")
-        return f"postgresql+asyncpg://{user}:{password}@{host}:{port}/{db}"
+
+        print("[🔧 DEBUG] Loaded DB info from env")
+        print(f"DB_USER={user}")
+        print(f"DB_PASSWORD={'*' * len(password) if password else None}")
+        print(f"DB_HOST={host}")
+        print(f"DB_PORT={port}")
+        print(f"DB_NAME={db}")
+
+        url = f"postgresql+asyncpg://{user}:{password}@{host}:{port}/{db}"
+        print(f"[✅ DEBUG] Final db_url = {url}")
+
+        return url
 
     def get_db_url(self):
         return self._db_url
