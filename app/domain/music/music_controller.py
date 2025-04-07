@@ -4,5 +4,5 @@ class MusicController:
     def __init__(self):
         self.music_service = MusicService()
 
-    def music_controller(self):
-        return self.music_service.get_melon_chart()
+    async def music_controller(self):
+        return await self.music_service.get_melon_chart()

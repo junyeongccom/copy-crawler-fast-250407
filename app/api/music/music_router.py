@@ -6,7 +6,7 @@ controller = MusicController()
 
 @router.get("/music")
 async def get_music():
-    result = controller.music_controller()
+    result = await controller.music_controller()
     return result
 
 
